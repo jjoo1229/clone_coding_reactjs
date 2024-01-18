@@ -12,27 +12,20 @@
 </body>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
     const root = document.getElementById("root");
-    const span = React.createElement(
-        "span",
-        {
-            id: "span",
-            onMouseEnter: () => console.log("mouse entered.")
-        },
-        "Hello, I'm a span."
+    const Title = (
+        <h3 id="span" onMouseEnter={() => console.log("mouse entered.")} >
+            Hello, I'm a span.
+        </h3>
     );
-    const button = React.createElement(
-        "button",
-        {
-            onClick: () => console.log("button clicked."),
-            style:{
-                backgroundColor: "tomato",
-            }
-        },
-        "Click Me"
+    const Button = (
+        <button onClick={() => console.log("button clicked.")} style={{backgroundColor: "tomato",}}>
+            Click Me</button>
     );
-    const container = React.createElement("div", null, [span, button]);
+    const container = React.createElement("div", null, [Title, Button]);
     ReactDOM.render(container, root);    // container를 root 안에 넣음
 </script>
+
 </html>
